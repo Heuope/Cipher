@@ -1,0 +1,10 @@
+C:\Users\konst\source\repos\UICS\UICS\bin\Debug\UICS.exe.config
+C:\Users\konst\source\repos\UICS\UICS\bin\Debug\UICS.exe
+C:\Users\konst\source\repos\UICS\UICS\bin\Debug\UICS.pdb
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.csprojAssemblyReference.cache
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.Properties.Resources.resources
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.csproj.GenerateResource.cache
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.csproj.CoreCompileInputs.cache
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.exe
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.pdb
+C:\Users\konst\source\repos\UICS\UICS\obj\Debug\UICS.Form1.resources
