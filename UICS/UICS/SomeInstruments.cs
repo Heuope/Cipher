@@ -36,7 +36,7 @@ namespace UICS
 
         static public string DelAlp(string str)
         {
-            foreach (var item in alphabet.ToCharArray())
+            foreach (char item in alphabet)
                 str = str.Replace(item.ToString(), "");
             return str;
         }
@@ -48,72 +48,61 @@ namespace UICS
             return str;
         }
 
-        static public string ForText(string str)
+        static public string DeleteUnnecessarySymbols(string str, bool isRus = true)
         {
-            foreach (var item in symbols)
-                str = str.Replace(item.ToString(), "");
-            foreach (var item in numbers)
-                str = str.Replace(item.ToString(), "");
-            foreach (var item in alphabetRUS.ToCharArray())
+            foreach (string item in symbols)
+                str = str.Replace(item, "");
+            foreach (string item in numbers)
+                str = str.Replace(item, "");
+
+            string defaultAlphabet = isRus ? alphabetRUS : alphabet;
+
+            // string можно итерировать просто так
+            foreach (char item in defaultAlphabet)
                 str = str.Replace(item.ToString(), "");
             return str;
         }
 
-        static public string ForTextRUS(string str)
+        // прекраснейший принцип DRY - Don't Repeat Yourself
+        static public string DeleteUnnecessaryRUSSymbols(string str)
         {
-            foreach (var item in symbols)
-                str = str.Replace(item.ToString(), "");
-            foreach (var item in numbers)
-                str = str.Replace(item.ToString(), "");
-            foreach (var item in alphabet.ToCharArray())
-                str = str.Replace(item.ToString(), "");
-            return str;
+            return DeleteUnnecessarySymbols(str, false);
         }
 
-        static public string CreateText(string from, string to)
+        static public string CreateText(string from, string to, bool isRus = true)
         {            
-            int index = 0; // index in "to"
+            int toIndex = 0;
             string result = "";
-            var h = new HashSet<string>(whatRUS);
+
+            string[] defaultWhat = isRus ? whatRUS : what;
+
+            var whatHashSet = new HashSet<string>(defaultWhat);
             if (from.Length > to.Length)
                 for (int i = 0; i < from.Length - to.Length; i++)
                     to += " ";
 
             for (int i = 0; i < from.Length; i++)
-                if (!h.Contains(from[i].ToString()))
-                    result += to[index++];
+                if (!whatHashSet.Contains(from[i].ToString()))
+                    result += to[toIndex++];
                 else
                     result += from[i];
-            result += to.Substring(index);            
+            result += to.Substring(toIndex);            
             return result;
         }
 
         static public string CreateTextRUS(string from, string to)
         {
-            int index = 0; // index in "to"
-            string result = "";
-            var h = new HashSet<string>(what);
-            if (from.Length > to.Length)
-                for (int i = 0; i < from.Length - to.Length; i++)
-                    to += " ";
-
-            for (int i = 0; i < from.Length; i++)
-                if (!h.Contains(from[i].ToString()))
-                    result += to[index++];
-                else
-                    result += from[i];
-            result += to.Substring(index);
-            return result;
+            return CreateText(from, to, false);
         }
 
-        static public string TakeFromFile(string FileName)
+        static public string ReadFromFile(string fileName)
         {
-            return System.IO.File.ReadAllText(FileName);
+            return System.IO.File.ReadAllText(fileName);
         }
 
-        static public void SaveInFile(string FileName, string Text)
+        static public void SaveInFile(string fileName, string Text)
         {            
-            System.IO.File.WriteAllText(FileName, Text);
+            System.IO.File.WriteAllText(fileName, Text);
         }
     }
 }

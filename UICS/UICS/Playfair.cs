@@ -42,7 +42,7 @@ namespace UICS
         static public string Cipher(string FileText, string key)
         {
             key = key.ToLower();            
-            var _text = SomeInstruments.ForText(FileText.ToLower());
+            var _text = SomeInstruments.DeleteUnnecessarySymbols(FileText.ToLower());
             var _bigRam = new List<string>();
             var _resBigRam = new List<string>();
 
@@ -84,7 +84,7 @@ namespace UICS
         static public string DeCipher(string FileText, string key)
         {
             key = key.ToLower();
-            var _text = SomeInstruments.ForText(FileText.ToLower());
+            var _text = SomeInstruments.DeleteUnnecessarySymbols(FileText.ToLower());
             var _bigRam = new List<string>();
             var _resBigRam = new List<string>();
 

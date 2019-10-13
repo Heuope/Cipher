@@ -30,9 +30,9 @@ namespace UICS
                 }
             }
             else if (cipher == "Playfair_ENG" || cipher == "Vigenere_ENG")
-                _result = SomeInstruments.ForText(_result);            
+                _result = SomeInstruments.DeleteUnnecessarySymbols(_result);            
             else
-                _result = SomeInstruments.ForTextRUS(_result);
+                _result = SomeInstruments.DeleteUnnecessaryRUSSymbols(_result);
             return _result.ToLower();
         }
 
@@ -53,7 +53,7 @@ namespace UICS
                 lamp.BackColor = Color.DarkRed;
                 return;            
             }            
-            string text = SomeInstruments.TakeFromFile(loadPath);            
+            string text = SomeInstruments.ReadFromFile(loadPath);            
             string code = "";
             if (checkBox1.Checked)
             {

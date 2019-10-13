@@ -13,7 +13,7 @@ namespace UICS
 
         static public string Cipher(string FileText, string key)
         {
-            string text = SomeInstruments.ForText(FileText.ToLower());
+            string text = SomeInstruments.DeleteUnnecessarySymbols(FileText.ToLower());
             string result = "";
             text.ToLower();
             // create a key            
@@ -32,7 +32,7 @@ namespace UICS
 
         static public string CipherRUS(string FileText, string key)
         {
-            string text = SomeInstruments.ForTextRUS(FileText.ToLower());
+            string text = SomeInstruments.DeleteUnnecessaryRUSSymbols(FileText.ToLower());
             string result = "";
             text.ToLower();
             // create a key            
@@ -51,7 +51,7 @@ namespace UICS
 
         static public string DeCipher(string FileText, string key)
         {
-            string text = SomeInstruments.ForText(FileText.ToLower());
+            string text = SomeInstruments.DeleteUnnecessarySymbols(FileText.ToLower());
             string result = "";
             text.ToLower();
             // create a key            
@@ -71,7 +71,7 @@ namespace UICS
 
         static public string DeCipherRUS(string FileText, string key)
         {
-            string text = SomeInstruments.ForTextRUS(FileText.ToLower());
+            string text = SomeInstruments.DeleteUnnecessaryRUSSymbols(FileText.ToLower());
             string result = "";
             text.ToLower();
             // create a key            
